@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureVault</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-private="true">
+  <header class="topbar">
+    <h1 class="logo">SECUREVAULT</h1>
+    <input id="search" type="search" placeholder="Search secrets">
+    <span id="timer" class="timer"></span>
+    <span id="userName"></span>
+    <a id="adminLink" href="admin.html" hidden>Admin</a>
+    <button id="logoutBtn" class="small-btn">Logout</button>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <nav id="drawers">
+        <button class="drawer active" data-type="all">All secrets <span class="count" id="count-all">0</span></button>
+        <button class="drawer" data-type="password">Passwords <span class="count" id="count-password">0</span></button>
+        <button class="drawer" data-type="note">Secure notes <span class="count" id="count-note">0</span></button>
+        <button class="drawer" data-type="apikey">API keys <span class="count" id="count-apikey">0</span></button>
+        <button class="drawer" data-type="file">Files <span class="count" id="count-file">0</span></button>
+        <button class="drawer" data-type="log">Activity log</button>
+      </nav>
+
+      <section class="generator">
+        <h3>PASSWORD GENERATOR</h3>
+        <div class="row"><span>Length</span> <input id="genLength" type="range" min="8" max="40" value="16"> <span id="genLengthText">16</span></div>
+        <div class="row"><input id="genUpper" type="checkbox" checked> Uppercase</div>
+        <div class="row"><input id="genNumbers" type="checkbox" checked> Numbers</div>
+        <div class="row"><input id="genSymbols" type="checkbox" checked> Symbols</div>
+        <input id="genOutput" readonly>
+        <div class="buttons">
+          <button id="genBtn" class="small-btn">Generate</button>
+          <button id="genCopyBtn" class="small-btn">Copy</button>
+        </div>
+      </section>
+    </aside>
+
+    <main>
+      <div class="main-head">
+        <h2 id="heading">All secrets</h2>
+        <button id="addBtn" class="btn">+ ADD SECRET</button>
+      </div>
+
+      <div id="cards" class="cards"></div>
+      <p id="empty" class="empty" hidden>Nothing here yet.</p>
+
+      <table id="logTable" hidden>
+        <thead><tr><th>TIME</th><th>ACTION</th><th>IP</th></tr></thead>
+        <tbody id="logBody"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <dialog id="formDialog">
+    <form id="secretForm">
+      <h2 id="formTitle">ADD SECRET</h2>
+
+      <label for="type">TYPE</label>
+      <select id="type">
+        <option value="password">Password</option>
+        <option value="note">Secure note</option>
+        <option value="apikey">API key</option>
+        <option value="file">Small file (max 1 MB)</option>
+      </select>
+
+      <label for="title">TITLE</label>
+      <input id="title" required maxlength="100">
+
+      <label for="extra" id="extraLabel">USERNAME</label>
+      <input id="extra" maxlength="100">
+
+      <label for="secret" id="secretLabel">PASSWORD</label>
+      <textarea id="secret" rows="3"></textarea>
+      <input id="fileInput" type="file" hidden>
+
+      <p id="formError" class="message error" hidden></p>
+
+      <div class="buttons">
+        <button class="btn" type="submit">SAVE</button>
+        <button id="fillGenBtn" class="small-btn" type="button">Use generated password</button>
+        <button id="cancelBtn" class="small-btn" type="button">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="viewDialog">
+    <h2 id="viewTitle"></h2>
+    <p id="viewExtra" class="small"></p>
+    <div id="viewSecret" class="secret-box"></div>
+    <div class="buttons">
+      <button id="showBtn" class="small-btn">Show</button>
+      <button id="copyBtn" class="small-btn">Copy</button>
+      <button id="downloadBtn" class="small-btn" hidden>Download file</button>
+      <button id="closeBtn" class="small-btn">Close</button>
+    </div>
+  </dialog>
+
+  <script src="js/common.js"></script>
+  <script src="js/vault.js"></script>
+</body>
+</html>
