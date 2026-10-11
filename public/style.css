@@ -1,0 +1,206 @@
+:root {
+  --bg: #0f1512;
+  --panel: #1a2420;
+  --line: #3a423e;
+  --brass: #d8b45a;
+  --brass-dark: #8a6a1c;
+  --cream: #efe6cc;
+  --ink: #2b2113;
+  --text: #e9dfc2;
+  --muted: #9aa39e;
+  --red: #d1432f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at 40% 0%, #2a3430, var(--bg) 60%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'DM Sans', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+a { color: var(--brass); }
+
+/* ---------- forms and buttons ---------- */
+label { display: block; margin-top: 14px; font-size: 13px; letter-spacing: 1px; color: var(--muted); }
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px;
+  background: #0f1412;
+  border: 1px solid var(--line);
+  border-bottom: 2px solid var(--brass-dark);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+}
+
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--brass); }
+
+.btn {
+  background: linear-gradient(var(--brass), #b98d34);
+  border: 0;
+  color: var(--ink);
+  font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 0 20px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.btn.full { width: 100%; margin-top: 22px; }
+
+.small-btn {
+  background: none;
+  border: 1px solid var(--brass-dark);
+  color: var(--text);
+  padding: 7px 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.small-btn:hover { border-color: var(--brass); }
+.small-btn.danger { color: #f0907f; }
+
+.message { padding: 10px 12px; background: #2c2410; border-left: 3px solid var(--brass); margin: 16px 0 0; }
+.message.error { background: #33150f; border-color: var(--red); }
+
+.small { font-size: 13px; color: var(--muted); }
+
+/* ---------- login / register ---------- */
+.center { display: flex; align-items: center; justify-content: center; padding: 24px; }
+.box { width: 400px; max-width: 100%; }
+.box h1 { font-size: 56px; line-height: 1; }
+.box .sub { color: var(--muted); margin: 8px 0 0; line-height: 1.5; }
+
+/* the dial is just CSS - tick marks and a brass knob */
+.dial {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  background:
+    radial-gradient(circle, var(--brass) 0 22%, #6d4f16 24%, #151a18 26% 58%, transparent 60%),
+    repeating-conic-gradient(var(--brass) 0 1.5deg, transparent 1.5deg 7.2deg);
+  border: 6px solid #47504b;
+}
+
+.qr-box { text-align: center; margin-top: 16px; }
+.qr-box img { background: white; padding: 8px; width: 190px; }
+.secret-text { font-family: monospace; word-break: break-all; color: var(--brass); }
+
+/* ---------- vault page ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--line);
+  background: #0c100e;
+}
+
+.logo { font-size: 30px; letter-spacing: 3px; }
+.topbar input { margin: 0; width: 280px; margin-left: auto; }
+.timer { color: var(--muted); font-size: 13px; }
+
+.layout { display: grid; grid-template-columns: 270px 1fr; gap: 28px; padding: 28px; }
+
+.drawer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 14px 16px;
+  background: linear-gradient(#26342e, #1d2924);
+  border: 1px solid #0a0d0c;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.drawer.active { box-shadow: 0 0 0 2px var(--brass); }
+.drawer .count { color: var(--brass); }
+
+.generator { margin-top: 22px; padding: 16px; background: var(--panel); border: 1px solid var(--line); }
+.generator h3 { font-size: 22px; }
+.generator .row { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 14px; }
+.generator .row input { width: auto; margin: 0; }
+.generator .buttons { display: flex; gap: 8px; margin-top: 12px; }
+
+.main-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.main-head h2 { font-size: 34px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+
+.card {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 16px;
+  border-top: 8px solid var(--brass);
+  box-shadow: 0 6px 12px #0008;
+}
+
+.card.note { border-top-color: #6f9a78; }
+.card.apikey { border-top-color: #c9764a; }
+.card.file { border-top-color: #8d969e; }
+
+.card .type { font-family: monospace; font-size: 11px; letter-spacing: 2px; color: #7a6a3e; text-transform: uppercase; }
+.card h3 { font-size: 26px; margin: 4px 0; word-break: break-word; }
+.card .extra { font-size: 14px; color: #5a4c2c; min-height: 20px; word-break: break-word; }
+.card .actions { display: flex; gap: 6px; margin-top: 14px; }
+.card .small-btn { color: var(--ink); border-color: #8a7547; }
+.card .small-btn.danger { color: #a32d2d; }
+
+.empty { color: var(--muted); }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; color: var(--brass); font-size: 12px; letter-spacing: 2px; padding: 8px; border-bottom: 2px solid var(--brass-dark); }
+td { padding: 8px; border-bottom: 1px solid var(--line); }
+td.bad { color: #f0907f; }
+
+/* ---------- dialogs ---------- */
+dialog {
+  background: var(--panel);
+  color: var(--text);
+  border: 2px solid var(--brass-dark);
+  padding: 24px;
+  width: 460px;
+  max-width: 94vw;
+}
+
+dialog::backdrop { background: #000a; }
+dialog h2 { font-size: 32px; }
+dialog .buttons { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+
+.secret-box {
+  margin-top: 14px;
+  padding: 12px;
+  background: #0f1412;
+  border: 1px solid var(--line);
+  font-family: monospace;
+  word-break: break-all;
+  white-space: pre-wrap;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.admin-page { max-width: 1100px; margin: 0 auto; padding: 28px; }
+.admin-page section { margin-bottom: 40px; }
+.admin-page h2 { font-size: 32px; margin-bottom: 12px; }
+
+[hidden] { display: none !important; }
