@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureVault - Admin</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-private="true">
+  <header class="topbar">
+    <h1 class="logo">SECUREVAULT / ADMIN</h1>
+    <span id="timer" class="timer"></span>
+    <a href="vault.html">Back to vault</a>
+  </header>
+
+  <div class="admin-page">
+    <section>
+      <h2>USERS</h2>
+      <table>
+        <thead><tr><th>NAME</th><th>EMAIL</th><th>ROLE</th><th>STATUS</th><th></th></tr></thead>
+        <tbody id="userBody"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>ACTIVITY LOG (ALL USERS)</h2>
+      <table>
+        <thead><tr><th>TIME</th><th>USER</th><th>ACTION</th><th>IP</th></tr></thead>
+        <tbody id="logBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
