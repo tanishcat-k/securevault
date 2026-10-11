@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureVault - Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+  <main class="box">
+    <div class="dial"></div>
+    <h1>SECUREVAULT</h1>
+    <p class="sub">Three steps to open your vault: master password, one-time code, then you are in.</p>
+
+    <p id="message" class="message" hidden></p>
+
+    <form id="loginForm">
+      <label for="email">EMAIL</label>
+      <input id="email" type="email" required autocomplete="username">
+
+      <label for="password">MASTER PASSWORD</label>
+      <input id="password" type="password" required autocomplete="current-password">
+
+      <button class="btn full" type="submit">UNLOCK</button>
+      <p class="small">New here? <a href="register.html">Create a vault</a></p>
+    </form>
+
+    <form id="otpForm" hidden>
+      <div id="qrBox" class="qr-box" hidden>
+        <p class="small">First login: scan this QR code with Google Authenticator (or any TOTP app).</p>
+        <img id="qrImage" alt="MFA QR code">
+        <p class="small">Can't scan? Type this key in the app:</p>
+        <p id="secretText" class="secret-text"></p>
+      </div>
+
+      <label for="code">6-DIGIT CODE</label>
+      <input id="code" inputmode="numeric" maxlength="6" required autocomplete="one-time-code">
+
+      <button class="btn full" type="submit">VERIFY</button>
+    </form>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
