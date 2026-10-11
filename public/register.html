@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureVault - Register</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+  <main class="box">
+    <div class="dial"></div>
+    <h1>NEW VAULT</h1>
+    <p class="sub">Your master password also makes the key that locks your secrets. If you forget it, nobody can recover your data.</p>
+
+    <p id="message" class="message" hidden></p>
+
+    <form id="registerForm">
+      <label for="name">NAME</label>
+      <input id="name" required>
+
+      <label for="email">EMAIL</label>
+      <input id="email" type="email" required>
+
+      <label for="password">MASTER PASSWORD (min 10 characters)</label>
+      <input id="password" type="password" minlength="10" required autocomplete="new-password">
+      <p id="strength" class="small"></p>
+
+      <label for="confirm">CONFIRM PASSWORD</label>
+      <input id="confirm" type="password" required autocomplete="new-password">
+
+      <button class="btn full" type="submit">CREATE VAULT</button>
+      <p class="small">Already have one? <a href="index.html">Log in</a></p>
+    </form>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>
