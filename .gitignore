@@ -1,0 +1,4 @@
+node_modules
+securevault.db
+securevault.db-shm
+securevault.db-wal
